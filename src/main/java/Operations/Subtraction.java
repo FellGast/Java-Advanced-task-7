@@ -1,2 +1,8 @@
-package Operations;public class Subtraction {
+package Operations;
+
+public class Subtraction implements Operation {
+    @Override
+    public double calculateResult(double left, double right) {
+        return left - right;
+    }
 }
