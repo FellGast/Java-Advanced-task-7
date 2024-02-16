@@ -17,7 +17,7 @@ public class Main {
             System.out.println(calculator.makeCalculation());
             scanner.close();
         } catch (Exception e) {
-            throw new RuntimeException("Неверный ввод");
+            throw new RuntimeException(e);
         }
     }
 }
