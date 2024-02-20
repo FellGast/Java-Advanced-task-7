@@ -1,13 +1,13 @@
 import Operations.*;
-
 import java.util.HashMap;
-import java.util.InputMismatchException;
 import java.util.Map;
 
 public class Calculator {
     private char operation;
     private double operand1;
     private double operand2;
+
+    private double result;
     private Map<Character, Operation> operationMap = new HashMap<>();
 
     public Calculator() {
@@ -32,7 +32,8 @@ public class Calculator {
         Operation operationMapValue = null;
         try {
             operationMapValue = operationMap.get(operation);
-            return operationMapValue.calculateResult(operand1, operand2);
+            this.setResult(operationMapValue.calculateResult(operand1, operand2)) ;
+            return this.getResult();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -64,4 +65,10 @@ public class Calculator {
     public void setOperand2(double operand2) {
         this.operand2 = operand2;
     }
+
+    public double getResult() {
+        return result;
+    }
+
+    public void setResult(double result) {this.result = result;}
 }

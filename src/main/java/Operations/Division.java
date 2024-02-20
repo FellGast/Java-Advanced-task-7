@@ -1,10 +1,12 @@
 package Operations;
 
+import Exceptions.DivideByZeroException;
+
 public class Division implements Operation {
     @Override
-    public double calculateResult(double left, double right) throws Exception {
+    public double calculateResult(double left, double right) throws DivideByZeroException {
         if (right == 0) {
-            throw new Exception("На ноль делить нельзя");
+            throw new DivideByZeroException();
         }
         return left / right;
 

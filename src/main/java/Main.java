@@ -3,6 +3,8 @@ import java.util.Scanner;
 /**
  * This program realises calculator in OOP
  *
+ * Added divide by zero exception {@link Exceptions.DivideByZeroException}
+ *
  * @author FellGast
  */
 
