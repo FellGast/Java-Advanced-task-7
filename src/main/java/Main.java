@@ -19,7 +19,7 @@ public class Main {
             System.out.println(calculator.makeCalculation());
             scanner.close();
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
         }
     }
 }
