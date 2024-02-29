@@ -1,6 +1,10 @@
-import static org.junit.Assert.assertEquals;
+import Exceptions.DivideByZeroException;
 import Operations.*;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Unit test for Calculator operations.
@@ -86,5 +90,24 @@ public class CalculationTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
+    @Test
+    public void testDivideByZero() throws Exception {
+        thrown.expect(DivideByZeroException.class);
+        thrown.expectMessage("Попытка деления на ноль");
+
+        Operation division = new Division();  // Класс Division реализует интерфейс Operation
+        division.calculateResult(12, 0);
+
+    }
+    @Test
+    public void testOperatorError(){
+        thrown.expect(RuntimeException.class);
+        thrown.expectMessage("Нет такой операции");
+
+        Calculator calc = new Calculator();
+        calc.setOperation('?');
     }
 }
